@@ -1,1 +1,1 @@
-web: python __init__.py
+web: uvicorn __init__:app --reload
