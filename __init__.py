@@ -1,14 +1,23 @@
-from fastapi import FastAPI
-from typing import Optional
-
-app = FastAPI()
-
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+from flask import Flask, request
+from flask import render_template
+import os,json
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+
+app = Flask(__name__)
+
+_port = os.environ.get('PORT', 5000)
+
+@app.route('/')
+def index():
+    data = {"a":"1234"}
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=_port)
