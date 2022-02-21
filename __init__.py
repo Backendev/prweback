@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask import render_template
-import os,json,tweepy
+import os,json,tweepy,requests
 from deep_translator import GoogleTranslator
 from textblob import TextBlob
 from bs4 import BeautifulSoup
