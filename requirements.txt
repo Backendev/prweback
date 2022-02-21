@@ -9,6 +9,7 @@ idna==3.3
 itsdangerous==2.1.0
 Jinja2==3.0.3
 joblib==1.1.0
+lxml==4.8.0
 MarkupSafe==2.1.0
 nltk==3.7
 oauthlib==3.2.0
