@@ -91,7 +91,6 @@ def twits():
     data_g = [{'sentimiento':'positivos','valor':positivos,'subjetivos':subjetivos_p,'neutrales':neutrales_p,'objetivos':objetivos_p},
     {'sentimiento':'neutrales','valor':neutrales1,'subjetivos':subjetivos_ne,'neutrales':neutrales_ne,'objetivos':objetivos_ne},
     {'sentimiento':'negativos','valor':negativos,'subjetivos':subjetivos_n,'neutrales':neutrales_n,'objetivos':objetivos_n}]
-    chart = pygal.Bar()
     value_list = [x['valor'] for x in data_g]
     chart.add('Sentimientos',value_list)
     chart.x_labels = [x['sentimiento'] for x in data_g]
