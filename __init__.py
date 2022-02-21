@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask import render_template
-import os,json
+import os,json,tweepy
+from deep_translator import GoogleTranslator
 
 
 
