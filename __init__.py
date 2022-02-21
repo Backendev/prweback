@@ -2,8 +2,8 @@ from flask import Flask, request
 from flask import render_template
 import os,json,tweepy
 from deep_translator import GoogleTranslator
-
-
+from textblob import TextBlob
+from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 
@@ -20,8 +20,9 @@ def index():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route('/twits/<word>')
+@app.route('/twits')
 def twits(word):
+    word = "millos"
     cantidad = 10
     client = tweepy.Client(bearer_token='AAAAAAAAAAAAAAAAAAAAAAaNYwEAAAAAZ9%2Bw4m2IzGYfdrpNT%2FF8RBvNHRY%3DMaZm6FLYw2uI34yKfjaz6ZUpUyZcWKU70OKx4RvMWdLDLUphOj')
     query = f'{word} -is:retweet'
