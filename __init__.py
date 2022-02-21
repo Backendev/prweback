@@ -20,6 +20,22 @@ def index():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
+@app.route('/wiki/<word>')
+def wiki(word):
+    r = requests.get(f'https://es.wikipedia.org/wiki/{word}')
+    html_text = r.text
+    soup = BeautifulSoup(html_text,'lxml')
+    content = soup.find_all(id='mw-content-text')
+    print(r.text)
+    data = {"data":str(content[0].text)}
+    response = app.response_class(
+        response=json.dumps(data),
+        status=200,
+        mimetype='application/json'
+    )
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
 @app.route('/twits/<word>')
 def twits(word):
     cantidad = 10
@@ -90,19 +106,6 @@ def twits(word):
     data_g = [{'sentimiento':'positivos','valor':positivos,'subjetivos':subjetivos_p,'neutrales':neutrales_p,'objetivos':objetivos_p,'twits':positivos_t},
     {'sentimiento':'neutrales','valor':neutrales1,'subjetivos':subjetivos_ne,'neutrales':neutrales_ne,'objetivos':objetivos_ne,'twits':neutrales_t},
     {'sentimiento':'negativos','valor':negativos,'subjetivos':subjetivos_n,'neutrales':neutrales_n,'objetivos':objetivos_n,'twits':negativos_t}]
-    value_list = [x['valor'] for x in data_g]
-    subjetividad_list = [x['subjetivos'] for x in data_g]
-    neutralidad_list = [x['neutrales'] for x in data_g]
-    objetividad_list = [x['objetivos'] for x in data_g]
-
-    data = {
-        "positivos":positivos_t,
-        "neutrales":neutrales_t,
-        "negativos":negativos_t,
-        "subjetividad":subjetividad_list,
-        "neutralidad":neutralidad_list,
-        "objetividad":objetividad_list
-    }
     response = app.response_class(
         response=json.dumps(data_g),
         status=200,
