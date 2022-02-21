@@ -87,9 +87,9 @@ def twits(word):
         di = {'text':datos['text'],'polaridad':polaridad,'subjetividad':subjetividad}
         
         l_twits.append(di)
-    data_g = [{'sentimiento':'positivos','valor':positivos,'subjetivos':subjetivos_p,'neutrales':neutrales_p,'objetivos':objetivos_p},
-    {'sentimiento':'neutrales','valor':neutrales1,'subjetivos':subjetivos_ne,'neutrales':neutrales_ne,'objetivos':objetivos_ne},
-    {'sentimiento':'negativos','valor':negativos,'subjetivos':subjetivos_n,'neutrales':neutrales_n,'objetivos':objetivos_n}]
+    data_g = [{'sentimiento':'positivos','valor':positivos,'subjetivos':subjetivos_p,'neutrales':neutrales_p,'objetivos':objetivos_p,'twits':positivos_t},
+    {'sentimiento':'neutrales','valor':neutrales1,'subjetivos':subjetivos_ne,'neutrales':neutrales_ne,'objetivos':objetivos_ne,'twits':neutrales_t},
+    {'sentimiento':'negativos','valor':negativos,'subjetivos':subjetivos_n,'neutrales':neutrales_n,'objetivos':objetivos_n,'twits':negativos_t}]
     value_list = [x['valor'] for x in data_g]
     subjetividad_list = [x['subjetivos'] for x in data_g]
     neutralidad_list = [x['neutrales'] for x in data_g]
