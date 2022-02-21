@@ -92,17 +92,10 @@ def twits():
     {'sentimiento':'neutrales','valor':neutrales1,'subjetivos':subjetivos_ne,'neutrales':neutrales_ne,'objetivos':objetivos_ne},
     {'sentimiento':'negativos','valor':negativos,'subjetivos':subjetivos_n,'neutrales':neutrales_n,'objetivos':objetivos_n}]
     value_list = [x['valor'] for x in data_g]
-    chart.add('Sentimientos',value_list)
-    chart.x_labels = [x['sentimiento'] for x in data_g]
-
     subjetividad_list = [x['subjetivos'] for x in data_g]
-    chart.add('Subjetividad',subjetividad_list)
-
     neutralidad_list = [x['neutrales'] for x in data_g]
-    chart.add('Neutralidad',neutralidad_list)
-
     objetividad_list = [x['objetivos'] for x in data_g]
-    chart.add('Objetividad',objetividad_list)
+
     data = {
         "positivos":positivos_t,
         "neutrales":neutrales_t,
