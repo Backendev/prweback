@@ -20,9 +20,8 @@ def index():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-@app.route('/twits')
-def twits():
-    word = "millos"
+@app.route('/twits/<word>')
+def twits(word):
     cantidad = 10
     client = tweepy.Client(bearer_token='AAAAAAAAAAAAAAAAAAAAAAaNYwEAAAAAZ9%2Bw4m2IzGYfdrpNT%2FF8RBvNHRY%3DMaZm6FLYw2uI34yKfjaz6ZUpUyZcWKU70OKx4RvMWdLDLUphOj')
     query = f'{word} -is:retweet'
