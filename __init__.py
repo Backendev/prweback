@@ -39,7 +39,8 @@ def wiki(word):
 @app.route('/twits/<word>')
 def twits(word):
     cantidad = 10
-    client = tweepy.Client(bearer_token='AAAAAAAAAAAAAAAAAAAAAAaNYwEAAAAAZ9%2Bw4m2IzGYfdrpNT%2FF8RBvNHRY%3DMaZm6FLYw2uI34yKfjaz6ZUpUyZcWKU70OKx4RvMWdLDLUphOj')
+    token = os.environ['bearer_token']
+    client = tweepy.Client(bearer_token=token)
     query = f'{word} -is:retweet'
     l_twits = []
     positivos_t = []
