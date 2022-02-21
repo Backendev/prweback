@@ -104,7 +104,7 @@ def twits(word):
         "objetividad":objetividad_list
     }
     response = app.response_class(
-        response=json.dumps(data),
+        response=json.dumps(data_g),
         status=200,
         mimetype='application/json'
     )
